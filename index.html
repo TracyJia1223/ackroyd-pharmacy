@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) — replace with Ackroyd Pharmacy's own GA4 measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-REPLACEME"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-REPLACEME');
+  </script>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ackroyd Pharmacy – Trusted Pharmacy Care in Richmond Since 2003</title>
+  <meta name="description" content="Ackroyd Pharmacy in Richmond, BC. Low dispensing fees, fast service, and personalized care since 2003.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green: #C8102E;
+      --green-dark: #8F0B20;
+      --green-light: #E0374F;
+      --green-pale: #FCE9EC;
+      --warm: #B8860B;
+      --warm-dark: #9A720A;
+      --white: #FFFFFF;
+      --gray-50: #F9FAFB;
+      --gray-100: #F3F4F6;
+      --gray-200: #E5E7EB;
+      --gray-500: #6B7280;
+      --gray-600: #4B5563;
+      --gray-700: #374151;
+      --gray-800: #1F2937;
+      --border: #E5E7EB;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--gray-800); line-height: 1.6; }
+
+    /* ── TOP BAR ── */
+    .top-bar { background: #F8F9FA; border-bottom: 1px solid var(--border); font-size: 0.76rem; padding: 0.38rem 1.5rem; }
+    .top-bar-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+    .top-bar-items { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
+    .top-bar-item { display: flex; align-items: center; gap: 0.35rem; color: var(--gray-600); }
+    .top-bar-item svg { width: 12px; height: 12px; flex-shrink: 0; color: var(--green); }
+    .top-bar-badge { position: relative; overflow: hidden; font-size: 0.74rem; font-weight: 600; color: var(--green-dark); letter-spacing: 0.05em; white-space: nowrap; }
+    .top-bar-badge::after { content: ''; position: absolute; top: 0; left: -100%; width: 60%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.75), transparent); animation: shimmerBadge 2.8s linear infinite; }
+    @keyframes shimmerBadge { 0% { left: -100%; } 100% { left: 200%; } }
+
+    /* ── SITE HEADER WRAP (sticky) ── */
+    .site-header-wrap { position: sticky; top: 0; z-index: 100; }
+    header { background: var(--white); border-bottom: 1px solid var(--border); box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .logo { text-decoration: none; cursor: pointer; }
+    .logo-main { display: block; font-size: 1.1rem; font-weight: 800; color: var(--green); letter-spacing: -0.02em; }
+    .logo-sub  { display: block; font-size: 0.68rem; color: var(--gray-600); font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; margin-top: 2px; }
+    nav { display: flex; align-items: center; gap: 0.25rem; }
+    nav a { text-decoration: none; color: var(--gray-600); font-size: 0.88rem; font-weight: 500; padding: 0.45rem 0.85rem; border-radius: 6px; transition: color 0.18s, background 0.18s; cursor: pointer; position: relative; }
+    nav a::after { content: ''; position: absolute; bottom: 4px; left: 0.85rem; right: 0.85rem; height: 2px; background: var(--green); border-radius: 2px; transform: scaleX(0); transition: transform 0.2s ease; }
+    nav a:hover { color: var(--green); background: transparent; }
+    nav a:hover::after { transform: scaleX(1); }
+    nav a.active { color: var(--green); }
+    nav a.active::after { transform: scaleX(1); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.6rem 1.25rem; border-radius: 999px; font-size: 0.88rem; font-weight: 600; text-decoration: none; transition: all 0.18s; cursor: pointer; border: none; font-family: inherit; }
+    .btn-primary { background: var(--green); color: var(--white); box-shadow: 0 3px 10px rgba(200,16,46,0.25); }
+    .btn-primary:hover { background: var(--green-dark); box-shadow: 0 5px 14px rgba(200,16,46,0.32); }
+    .btn-outline { background: transparent; color: var(--green); border: 2px solid var(--green); }
+    .btn-outline:hover { background: var(--green); color: var(--white); }
+    .btn-white { background: var(--white); color: var(--green); }
+    .btn-white:hover { background: var(--green-pale); }
+    .btn-white-outline { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.65); }
+    .btn-white-outline:hover { background: rgba(255,255,255,0.15); }
+    .btn-lg { padding: 0.85rem 2rem; font-size: 1rem; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 0.5rem; background: none; border: none; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--green); border-radius: 2px; }
+
+    /* ── HERO ── */
+    .hero { background: linear-gradient(to right, rgba(143,11,32,0.18) 0%, rgba(200,16,46,0.06) 18%, transparent 32%, transparent 68%, rgba(200,16,46,0.06) 82%, rgba(143,11,32,0.18) 100%), linear-gradient(rgba(255,255,255,0.94), rgba(253,238,240,0.96)), url('images/hero-bg.jpg') center/cover no-repeat; color: var(--gray-800); padding: 5.5rem 1.5rem; text-align: center; }
+    .hero-inner { max-width: 720px; margin: 0 auto; }
+    @keyframes badgePulse {
+      0%   { box-shadow: 0 0 0 0 rgba(200,16,46,0.45); }
+      70%  { box-shadow: 0 0 0 8px rgba(200,16,46,0); }
+      100% { box-shadow: 0 0 0 0 rgba(200,16,46,0); }
+    }
+    .hero-badge { display: inline-block; background: var(--green-pale); color: var(--green); font-size: 0.74rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 1rem; border-radius: 100px; margin-bottom: 1.5rem; border: 1px solid rgba(200,16,46,0.35); animation: badgePulse 2.2s ease-out infinite; }
+    .hero h1 { position: relative; overflow: hidden; font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.15; margin-bottom: 1.25rem; letter-spacing: -0.04em; color: var(--gray-800); }
+    .hero h1::after { content: ''; position: absolute; top: 0; left: -100%; width: 45%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent); animation: shimmerBadge 3.5s linear infinite; pointer-events: none; }
+    .hero h1 em { color: var(--green); font-style: normal; }
+    .hero p { font-size: 1.05rem; color: var(--gray-600); margin-bottom: 2.5rem; line-height: 1.75; }
+    .hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-warm { background: var(--warm); color: var(--white); box-shadow: 0 3px 12px rgba(184,134,11,0.30); }
+    .btn-warm:hover { background: var(--warm-dark); box-shadow: 0 5px 18px rgba(184,134,11,0.40); transform: translateY(-1px); }
+
+    /* ── TRUST BAR ── */
+    .trust-bar-sec { background: var(--white); border-bottom: 1px solid var(--border); padding: 1.1rem 1.5rem; }
+    .trust-bar-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 2.5rem; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 600; color: var(--green); }
+    .trust-item svg { width: 17px; height: 17px; flex-shrink: 0; }
+
+    /* ── GENERIC SECTION ── */
+    .sec { padding: 5rem 1.5rem; }
+    .sec-gray { background: #F8F9FA; }
+    .sec-white { background: var(--white); }
+    .sec + .sec { border-top: 1px solid var(--border); }
+    .inner { max-width: 1200px; margin: 0 auto; }
+    .sec-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); margin-bottom: 0.65rem; }
+    .sec-title { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 0.9rem; color: var(--gray-800); }
+    .sec-sub { font-size: 1rem; color: var(--gray-500); max-width: 580px; line-height: 1.75; }
+    .sec-head { margin-bottom: 2.5rem; }
+    .sec-head.center { text-align: center; }
+    .sec-head.center .sec-sub { margin: 0 auto; }
+
+    /* ── SERVICES GRID ── */
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .service-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem; transition: all 0.2s; text-decoration: none; color: inherit; display: block; cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+    .service-card:hover { border-color: var(--green); box-shadow: 0 6px 20px rgba(200,16,46,0.12); transform: translateY(-2px); }
+    .svc-icon { width: 46px; height: 46px; background: rgba(200,16,46,0.10); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.1rem; }
+    .svc-icon svg { width: 22px; height: 22px; color: var(--green); }
+    .service-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .service-card p { font-size: 0.875rem; color: var(--gray-500); line-height: 1.65; }
+
+    /* ── WHY CHOOSE US ── */
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 2rem; }
+    .why-item { display: flex; gap: 1rem; }
+    .why-num { font-size: 2.25rem; font-weight: 800; color: var(--green); opacity: 0.22; line-height: 1; min-width: 2.5rem; }
+    .why-body h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .why-body p { font-size: 0.875rem; color: var(--gray-500); line-height: 1.65; }
+
+    /* ── CONVERSION ── */
+    .conversion-sec { background: #F8F9FA; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); color: var(--gray-800); text-align: center; padding: 3.5rem 1.5rem; }
+    .conversion-sec .sec-title { color: var(--green); letter-spacing: -0.03em; }
+    .conversion-sec .sec-sub { color: var(--gray-600); margin: 0 auto 3rem; }
+.conversion-sec .btn-primary { box-shadow: 0 4px 16px rgba(143,11,32,0.28); }
+    .conversion-sec .btn-primary:hover { box-shadow: 0 6px 20px rgba(143,11,32,0.38); }
+
+    /* ── TESTIMONIALS ── */
+    .test-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
+    .test-card { background: var(--gray-50); border: 1px solid var(--border); border-radius: 14px; padding: 1.65rem; }
+    .stars { color: #F59E0B; font-size: 1rem; margin-bottom: 0.9rem; letter-spacing: 2px; }
+    .test-text { font-size: 0.92rem; color: var(--gray-600); line-height: 1.75; margin-bottom: 1.1rem; font-style: italic; }
+    .test-author { font-size: 0.85rem; font-weight: 700; }
+    .test-meta { font-size: 0.78rem; color: var(--gray-500); }
+
+    /* ── CONTACT ── */
+    .contact-items { display: flex; flex-direction: column; gap: 1.25rem; margin-top: 2rem; }
+    .contact-item { display: flex; gap: 0.9rem; align-items: flex-start; }
+    .contact-item svg { width: 19px; height: 19px; color: var(--green); flex-shrink: 0; margin-top: 2px; }
+    .ci-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--green); margin-bottom: 0.15rem; }
+    .ci-value { font-size: 0.92rem; color: var(--gray-800); }
+    .contact-page-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 2rem; align-items: stretch; }
+    .contact-left-card { display: flex; flex-direction: column; gap: 1.5rem; }
+    .contact-map { margin-top: 1.5rem; height: 130px; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); background: var(--gray-100); }
+
+    /* ── FORMS ── */
+    .form-card { max-width: 660px; margin: 0 auto; background: var(--gray-50); border: 1px solid var(--border); border-radius: 16px; padding: 2rem 2rem 2.5rem; }
+    .form-tabs { display: flex; border-bottom: 2px solid var(--border); margin-bottom: 2.25rem; max-width: 660px; margin-left: auto; margin-right: auto; }
+    .form-tab { padding: 0.7rem 1.6rem; font-size: 0.92rem; font-weight: 600; color: var(--gray-500); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; background: none; border-top: none; border-left: none; border-right: none; font-family: inherit; transition: all 0.15s; }
+    .form-tab.active { color: var(--green); border-bottom-color: var(--green); }
+    .form-tab:hover { color: var(--green); }
+    .form-panel { display: none; max-width: 660px; margin: 0 auto; }
+    .form-panel.active { display: block; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+    .fg { display: flex; flex-direction: column; gap: 0.35rem; }
+    .fg.full { grid-column: 1 / -1; }
+    .fg label { font-size: 0.85rem; font-weight: 600; color: var(--gray-800); }
+    .fg input, .fg textarea, .fg select { padding: 0.7rem 1rem; border: 1.5px solid var(--gray-200); border-radius: 8px; font-size: 0.9rem; font-family: inherit; color: var(--gray-800); background: var(--white); transition: border-color 0.2s, box-shadow 0.2s; outline: none; }
+    .fg input:focus, .fg textarea:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(200,16,46,0.1); }
+    .fg textarea { resize: vertical; min-height: 95px; }
+    .fg .note { font-size: 0.77rem; color: var(--gray-500); }
+    .form-submit { margin-top: 1.75rem; display: flex; justify-content: center; }
+    .form-submit .btn { min-width: 220px; }
+
+    /* ── RX FEATURES ── */
+    .rx-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 3rem; }
+    .rx-feat { padding: 1.25rem 1.1rem; background: var(--green-pale); border-radius: 10px; font-size: 0.875rem; font-weight: 600; color: var(--green); display: flex; align-items: center; gap: 0.65rem; }
+    .rx-feat svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    /* ── VACCINES ── */
+    .vax-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.65rem; }
+    .vax-item { display: flex; align-items: center; gap: 0.7rem; padding: 0.8rem 1rem; background: var(--white); border: 1px solid var(--border); border-radius: 9px; font-size: 0.875rem; font-weight: 500; }
+    .vax-item svg { width: 17px; height: 17px; color: var(--green); flex-shrink: 0; }
+    .vax-item.future { opacity: 0.55; }
+
+    /* ── AILMENTS ── */
+    .ailment-cat { margin-bottom: 2.25rem; }
+    .ailment-cat h3 { font-size: 0.95rem; font-weight: 700; color: var(--green); margin-bottom: 0.9rem; padding-bottom: 0.4rem; border-bottom: 2px solid var(--green-pale); }
+    .ailment-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(195px, 1fr)); gap: 0.5rem; }
+    .ailment-item { display: flex; align-items: center; gap: 0.55rem; font-size: 0.875rem; color: var(--gray-700); }
+    .ailment-item::before { content: ''; width: 6px; height: 6px; background: var(--green); border-radius: 50%; flex-shrink: 0; }
+
+    /* ── ABOUT ── */
+    .about-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 4rem; align-items: start; }
+    .about-content h2 { font-size: 1.45rem; font-weight: 700; color: var(--gray-800); margin-bottom: 1rem; letter-spacing: -0.02em; margin-top: 2rem; }
+    .about-content h2:first-of-type { margin-top: 0; }
+    .about-content p { color: var(--gray-600); line-height: 1.8; margin-bottom: 1rem; font-size: 0.95rem; }
+    .values-list { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; margin-top: 0.65rem; }
+    .values-list li { display: flex; align-items: center; gap: 0.7rem; font-size: 0.92rem; font-weight: 500; }
+    .values-list li::before { content: ''; width: 7px; height: 7px; background: var(--green); border-radius: 50%; flex-shrink: 0; }
+    .stat-cards { display: flex; flex-direction: column; gap: 1.25rem; position: sticky; top: 130px; }
+    .stat-card { background: var(--green-pale); border: 1px solid rgba(200,16,46,0.12); border-radius: 14px; padding: 1.75rem; text-align: center; }
+    .stat-card.dark { background: var(--green); border-color: transparent; }
+    .stat-num { font-size: 2.75rem; font-weight: 800; color: var(--green); letter-spacing: -0.04em; line-height: 1; margin-bottom: 0.35rem; }
+    .stat-card.dark .stat-num { color: var(--white); }
+    .stat-lbl { font-size: 0.875rem; color: var(--gray-500); font-weight: 500; }
+    .stat-card.dark .stat-lbl { color: rgba(255,255,255,0.75); }
+
+    /* ── COMPLIANCE NOTE ── */
+    .compliance { background: var(--gray-50); border: 1px solid var(--border); border-left: 4px solid var(--green); border-radius: 8px; padding: 1.1rem 1.4rem; font-size: 0.85rem; color: var(--gray-600); line-height: 1.75; margin-top: 2.5rem; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--white); border-top: 3px solid var(--warm); color: var(--gray-700); padding: 3.5rem 1.5rem 0; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 2.75rem; }
+    .footer-logo-main { display: block; font-size: 1.05rem; font-weight: 700; color: var(--green); letter-spacing: -0.02em; }
+    .footer-logo-sub { display: block; font-size: 0.65rem; color: var(--gray-500); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 1px; }
+    .footer-brand p { margin-top: 0.75rem; font-size: 0.85rem; line-height: 1.9; color: var(--gray-500); }
+    .footer-tagline { font-style: italic; color: var(--gray-500); font-size: 0.8rem; margin-top: 0.75rem; }
+    .footer-col h4 { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--green-dark); margin-bottom: 0.9rem; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+    .footer-links a { font-size: 0.85rem; color: var(--gray-500); text-decoration: none; transition: color 0.15s; cursor: pointer; line-height: 1.5; }
+    .footer-links a:hover { color: var(--warm); }
+    .footer-bottom { background: #FDF3F4; margin: 0 -1.5rem; padding: 1.1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; border-top: 1px solid var(--border); }
+    .footer-bottom p { font-size: 0.78rem; color: var(--gray-500); }
+
+    /* ── PHOTO STRIP ── */
+    .photo-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .photo-strip-item { overflow: hidden; display: flex; flex-direction: column; }
+    .photo-strip-item img { width: 100%; height: 240px; object-fit: cover; display: block; transition: transform 0.6s ease; }
+    .photo-strip-item:hover img { transform: scale(1.04); }
+    .photo-strip-item .caption { background: var(--white); color: var(--gray-700); font-size: 0.82rem; font-weight: 600; text-align: center; padding: 0.7rem 1rem; border-top: 1px solid var(--border); letter-spacing: 0.02em; }
+
+    /* ── ANIMATIONS ── */
+    .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-up.delay-1 { transition-delay: 0.1s; }
+    .fade-up.delay-2 { transition-delay: 0.2s; }
+    .fade-up.delay-3 { transition-delay: 0.3s; }
+    .fade-up.delay-4 { transition-delay: 0.4s; }
+    .fade-up.delay-5 { transition-delay: 0.5s; }
+
+    /* ── RESPONSIVE ── */
+    .about-photo { width: 100%; height: 260px; object-fit: cover; border-radius: 16px; margin-bottom: 1.25rem; display: block; }
+
+    @media (max-width: 960px) {
+      .photo-strip-item img { height: 200px; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid, .contact-page-grid { grid-template-columns: 1fr; }
+      .stat-cards { position: static; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .test-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 640px) {
+      .top-bar-inner { flex-wrap: wrap; justify-content: center; gap: 0.25rem 1.25rem; padding: 0.4rem 1rem; }
+      .top-bar-items { gap: 0.75rem; }
+      .top-bar-item { font-size: 0.72rem; }
+      .top-bar-badge { font-size: 0.68rem; }
+      .top-bar-email { font-size: 0.72rem; order: 2; width: 100%; justify-content: center; }
+      .top-bar-address { font-size: 0.72rem; order: 1; }
+      .top-bar-badge { order: 3; width: 100%; text-align: center; }
+      .photo-strip { grid-template-columns: 1fr; }
+      .photo-strip-item img { height: 180px; }
+      nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); padding: 1rem 1.5rem; box-shadow: 0 4px 16px rgba(0,0,0,0.08); flex-direction: column; align-items: flex-start; gap: 0; z-index: 99; }
+      nav.open { display: flex; }
+      nav a { font-size: 1rem; padding: 0.75rem 0 0.75rem 0.85rem; border-radius: 0; width: 100%; border-bottom: 1px solid var(--border); border-left: 3px solid transparent; }
+      nav a:last-child { border-bottom: none; }
+      nav a::after { display: none; }
+      nav a.active { border-left-color: var(--green); background: var(--green-pale); font-weight: 700; }
+      .hamburger { display: flex; }
+      .header-cta-btn { display: none; }
+      .sec { padding: 3rem 1.25rem; }
+      .hero { padding: 3.5rem 1.25rem; }
+      .hero h1 { font-size: 1.75rem; }
+      .hero p { font-size: 0.95rem; }
+      .hero-ctas { flex-direction: column; align-items: stretch; }
+      .hero-ctas .btn { text-align: center; }
+      .trust-bar-inner { gap: 1rem; justify-content: flex-start; }
+      .trust-item { font-size: 0.8rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .test-grid { grid-template-columns: 1fr; }
+      .vax-grid { grid-template-columns: 1fr 1fr; }
+      .ailment-list { grid-template-columns: 1fr 1fr; }
+      .rx-features { grid-template-columns: 1fr 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-card { padding: 1.25rem 1rem 1.75rem; border-radius: 12px; }
+      .form-tab { padding: 0.65rem 0.9rem; font-size: 0.85rem; }
+      .fg input[type="file"] { font-size: 0.8rem; width: 100%; }
+      .form-submit .btn { width: 100%; }
+      .conversion-sec .btn { width: 100%; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; text-align: center; margin: 0 -1.25rem; padding: 1.1rem 1.25rem; }
+      .btn-lg { padding: 0.8rem 1.5rem; font-size: 0.95rem; }
+    }
+
+    /* ── Form success / error states ── */
+    .form-success { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 3rem 1.5rem; text-align: center; opacity: 0; transform: scale(0.96); transition: opacity 0.4s ease, transform 0.4s ease; }
+    .form-success.visible { opacity: 1; transform: scale(1); }
+    .form-success-icon { width: 72px; height: 72px; margin-bottom: 1.25rem; }
+    .form-success-icon svg { width: 100%; height: 100%; }
+    .form-success-icon svg circle { fill: none; stroke: var(--green); stroke-width: 2.5; stroke-dasharray: 166; stroke-dashoffset: 166; animation: sgCircle 0.55s cubic-bezier(0.65,0,0.45,1) forwards; }
+    .form-success-icon svg path { fill: none; stroke: var(--green); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 48; stroke-dashoffset: 48; animation: sgCheck 0.3s cubic-bezier(0.65,0,0.45,1) 0.6s forwards; }
+    @keyframes sgCircle { to { stroke-dashoffset: 0; } }
+    @keyframes sgCheck  { to { stroke-dashoffset: 0; } }
+    .form-success-msg { font-size: 1rem; color: var(--gray-700); max-width: 380px; margin-bottom: 1.75rem; line-height: 1.65; }
+    .form-error-banner { margin-top: 1rem; padding: 0.75rem 1rem; background: #fff3f3; border: 1.5px solid #f5c6c6; border-radius: 8px; color: #c0392b; font-size: 0.88rem; text-align: center; }
+  </style>
+</head>
+<body>
+
+<!-- STICKY HEADER WRAPPER -->
+<div class="site-header-wrap">
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <div class="top-bar-items">
+        <span class="top-bar-item">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          <a href="tel:+16042079972" style="color:inherit;text-decoration:none;">(604) 207-9972</a>
+        </span>
+        <span class="top-bar-item">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+          Fax: (604) 207-9080
+        </span>
+      </div>
+      <a class="top-bar-item top-bar-email" href="mailto:manager@ackroydpharmacy.ca" style="color:inherit;text-decoration:none;">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        manager@ackroydpharmacy.ca
+      </a>
+      <a class="top-bar-item top-bar-address" href="https://maps.google.com/?q=160-8100+Ackroyd+Road+Richmond+BC" target="_blank" style="color:inherit;text-decoration:none;">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        160–8100 Ackroyd Road, Richmond
+      </a>
+      <div class="top-bar-badge">&#10022; Locally Owned &amp; Operated</div>
+    </div>
+  </div>
+  <header>
+    <div class="header-inner">
+      <a onclick="showPage('home')" class="logo" style="display:flex;align-items:center;gap:0.6rem;">
+        <span>
+        <span class="logo-main">Ackroyd Pharmacy</span>
+        <span class="logo-sub">Richmond · Since 2003</span>
+        </span>
+      </a>
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="main-nav">
+        <a onclick="showPage('home')" class="nav-link active" data-page="home">Home</a>
+        <a onclick="showPage('about')" class="nav-link" data-page="about">About</a>
+        <a onclick="showPage('prescribing')" class="nav-link" data-page="prescribing">Prescribing</a>
+        <a onclick="showPage('prescriptions')" class="nav-link" data-page="prescriptions">Prescriptions</a>
+        <a onclick="showPage('vaccinations')" class="nav-link" data-page="vaccinations">Vaccinations</a>
+        <a onclick="showPage('home');goToContact()" class="nav-link" data-page="contact">Contact</a>
+      </nav>
+      <a onclick="showPage('prescriptions');setTimeout(()=>{switchTab('transfer',document.querySelectorAll('.form-tab')[0])},80)" class="btn btn-warm header-cta-btn">Transfer Prescription</a>
+    </div>
+  </header>
+</div>
+
+<!-- ═══════ HOME PAGE ═══════ -->
+<div class="page" id="page-home">
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">&#10022; Richmond, BC</div>
+      <h1>Trusted Pharmacy Care in <em>Richmond</em><br>Since <em>2003</em></h1>
+      <p>Low dispensing fees, fast service, and personalized care — right in your neighbourhood.</p>
+      <div class="hero-ctas">
+        <a onclick="showPage('prescriptions');setTimeout(()=>{switchTab('transfer',document.querySelectorAll('.form-tab')[0])},80)" class="btn btn-warm btn-lg">Transfer Prescription</a>
+        <a onclick="showPage('prescriptions')" class="btn btn-outline btn-lg">Refill Prescription</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-bar-sec">
+    <div class="trust-bar-inner">
+      <div class="trust-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>Serving community since 2003</div>
+      <div class="trust-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Over 20 years of care</div>
+      <div class="trust-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Low dispensing fees</div>
+      <div class="trust-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>Renewed commitment to our customers</div>
+    </div>
+  </div>
+
+  <section class="sec sec-gray">
+    <div class="inner">
+      <div class="sec-head center">
+        <div class="sec-label">What We Offer</div>
+        <h2 class="sec-title">Comprehensive Pharmacy Services</h2>
+        <p class="sec-sub">Everything you need for your health, all in one trusted neighbourhood pharmacy.</p>
+      </div>
+      <div class="services-grid">
+        <div onclick="showPage('prescriptions')" class="service-card fade-up delay-1">
+          <div class="svc-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg></div>
+          <h3>Prescription Services &amp; Compounding</h3>
+          <p>Refills, transfers, blister packaging, compounding, medication reviews, and home delivery.</p>
+        </div>
+        <div onclick="showPage('vaccinations')" class="service-card fade-up delay-2">
+          <div class="svc-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg></div>
+          <h3>Vaccinations</h3>
+          <p>Flu, COVID-19, shingles, HPV, and more. Walk-ins welcome.</p>
+        </div>
+        <div onclick="showPage('prescribing')" class="service-card fade-up delay-3">
+          <div class="svc-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg></div>
+          <h3>Prescribing</h3>
+          <p>Pharmacist prescribing for minor ailments and birth control. No doctor's visit required.</p>
+        </div>
+        <div onclick="showPage('prescriptions')" class="service-card fade-up delay-4">
+          <div class="svc-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg></div>
+          <h3>Medication Reviews</h3>
+          <p>Comprehensive review to optimize the safety and effectiveness of your medications.</p>
+        </div>
+        <div onclick="showPage('prescriptions')" class="service-card fade-up delay-5">
+          <div class="svc-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></div>
+          <h3>Pet Medication</h3>
+          <p>We also carry medication and health products for your pets — available for pickup or delivery.</p>
+        </div>
+        <div onclick="showPage('home');goToContact()" class="service-card fade-up delay-1">
+          <div class="svc-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+          <h3>Insurance / PharmaCare</h3>
+          <p>We work with all major insurers and BC PharmaCare to maximize your coverage.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-white">
+    <div class="inner">
+      <div class="sec-head center">
+        <div class="sec-label">Why Choose Us</div>
+        <h2 class="sec-title">The Pharmacy That Puts Patients First</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-item"><div class="why-num">01</div><div class="why-body"><h3>Established in 2003</h3><p>Generations of Richmond families have trusted us with their health. 20+ years of local expertise in your corner.</p></div></div>
+        <div class="why-item"><div class="why-num">02</div><div class="why-body"><h3>Lower Dispensing Fees</h3><p>Save money on every prescription. Our competitive fees mean real savings for you and your family.</p></div></div>
+        <div class="why-item"><div class="why-num">03</div><div class="why-body"><h3>Personalized Care</h3><p>As an independent pharmacy, we take time to know you. You're not just a number here.</p></div></div>
+        <div class="why-item"><div class="why-num">04</div><div class="why-body"><h3>Renewed Focus on Experience</h3><p>Faster service, transparent pricing, and a better overall experience every time you visit.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="photo-strip">
+    <div class="photo-strip-item"><img src="images/strip-blister.jpg" alt="Blister pack medication" loading="lazy"><div class="caption">Blister Packs</div></div>
+    <div class="photo-strip-item"><img src="images/strip-vaccination.jpg" alt="Vaccination" loading="lazy"><div class="caption">Vaccinations</div></div>
+    <div class="photo-strip-item"><img src="images/strip-prescription.jpg" alt="Prescription services" loading="lazy"><div class="caption">Prescribing</div></div>
+  </div>
+
+  <section class="conversion-sec">
+    <div class="inner">
+      <div class="sec-label">Switch &amp; Save</div>
+      <h2 class="sec-title">Save More on Every Prescription</h2>
+      <p class="sec-sub">Switching is easy. Our low dispensing fees mean you keep more money on every prescription, without compromising on care.</p>
+      <a onclick="showPage('prescriptions');setTimeout(()=>{switchTab('transfer',document.querySelectorAll('.form-tab')[0])},80)" class="btn btn-primary btn-lg">Transfer My Prescription</a>
+    </div>
+  </section>
+
+  <!-- Contact — stays on Home page -->
+  <section class="sec sec-gray" id="contact-section">
+    <div class="inner">
+      <div class="sec-head center">
+        <div class="sec-label">Contact Us</div>
+        <h2 class="sec-title">Get in Touch</h2>
+        <p class="sec-sub">Have a question? We're happy to help.</p>
+      </div>
+      <div class="contact-page-grid">
+        <div class="contact-left-card">
+          <div class="contact-items" style="margin-top:0;">
+            <div class="contact-item">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <a href="https://maps.google.com/?q=160-8100+Ackroyd+Road+Richmond+BC" target="_blank" style="color:inherit;text-decoration:none;"><div class="ci-label">Address</div><div class="ci-value">160–8100 Ackroyd Road<br>Richmond, BC</div></a>
+            </div>
+            <div class="contact-item">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              <a href="tel:+16042079972" style="color:inherit;text-decoration:none;"><div class="ci-label">Phone</div><div class="ci-value">(604) 207-9972</div></a>
+            </div>
+            <div class="contact-item">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              <a href="mailto:manager@ackroydpharmacy.ca" style="color:inherit;text-decoration:none;"><div class="ci-label">Email</div><div class="ci-value">manager@ackroydpharmacy.ca</div></a>
+            </div>
+            <div class="contact-item">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+              <div><div class="ci-label">Fax</div><div class="ci-value">(604) 207-9080</div></div>
+            </div>
+            <div class="contact-item">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <div><div class="ci-label">Hours</div><div class="ci-value">Mon–Fri: 9:30am – 7:30pm<br>Sat: 9:30am – 6:30pm<br>Closed on Sundays, statutory holidays and Boxing Day.</div></div>
+            </div>
+          </div>
+          <div class="contact-map">
+            <iframe src="https://maps.google.com/maps?q=160-8100+Ackroyd+Road+Richmond+BC+Canada&output=embed&z=16" width="100%" height="100%" style="border:0;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+        <div>
+          <form onsubmit="handleSubmit(event,'contact')">
+            <div class="form-grid">
+              <div class="fg"><label>First Name *</label><input type="text" required></div>
+              <div class="fg"><label>Last Name *</label><input type="text" required></div>
+              <div class="fg"><label>Phone</label><input type="tel"></div>
+              <div class="fg"><label>Email *</label><input type="email" required></div>
+              <div class="fg full"><label>Message *</label><textarea style="min-height:200px" required></textarea></div>
+            </div>
+            <div class="form-submit"><button type="submit" class="btn btn-primary btn-lg">Send Message</button></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /#page-home -->
+
+<!-- ═══════ ABOUT PAGE ═══════ -->
+<div class="page" id="page-about" style="display:none;">
+
+  <section class="sec sec-gray">
+    <div class="inner">
+      <div class="about-grid">
+        <div class="about-content">
+          <div class="sec-label">Our Story</div>
+          <h2>Proudly Serving Richmond Since 2003</h2>
+          <p>Ackroyd Pharmacy has been a trusted destination for prescription services, health advice, and personalized pharmacy care for over 20 years. Generations of families have relied on us for their everyday health needs, and we are proud to have built long-standing relationships within the community.</p>
+          <h2>Our Commitment to Our Customers</h2>
+          <p>Today, we continue to build on that strong foundation with a renewed commitment to our customers. We are focused on delivering:</p>
+          <ul class="values-list" style="margin-bottom:1rem;">
+            <li>More efficient and convenient service</li>
+            <li>Clear, transparent pricing with competitive dispensing fees</li>
+            <li>A better overall patient experience</li>
+          </ul>
+          <p>Our goal is to make your pharmacy experience easier, more affordable, and more personal.</p>
+          <h2>Personalized, Community-Based Care</h2>
+          <p>As an independent community pharmacy, we take the time to get to know our patients. You're not just a number here. Whether you need help managing medications, understanding your prescriptions, or navigating insurance coverage, our team is here to support you every step of the way.</p>
+          <p style="font-weight:600;color:var(--gray-800);">We believe pharmacy care should be:</p>
+          <ul class="values-list">
+            <li>Accessible</li><li>Personal</li><li>Reliable</li>
+          </ul>
+          <h2>Affordable Care You Can Trust</h2>
+          <p>We understand that the cost of medications matters. That's why we are committed to offering competitive, low dispensing fees, helping our patients save on every prescription without compromising on quality or care.</p>
+          <h2>Proudly Serving Richmond</h2>
+          <p>Located in the heart of Richmond, we are proud to continue serving our local community with the same trusted care we've provided since 2003. We look forward to continuing to support the health and well-being of our patients for many years to come.</p>
+        </div>
+        <div class="stat-cards">
+          <img src="images/about-doctor.jpg" alt="Community pharmacy" loading="lazy" class="about-photo">
+          <div class="stat-card"><div class="stat-num" data-target="20" data-suffix="+">20+</div><div class="stat-lbl">Years Serving Richmond</div></div>
+          <div class="stat-card"><div class="stat-num">2003</div><div class="stat-lbl">Year Established</div></div>
+          <div class="stat-card"><div class="stat-num" style="font-size:1.75rem;line-height:1.3;">Low Fees</div><div class="stat-lbl">Competitive dispensing fees on every prescription</div></div>
+          <div class="stat-card"><div class="stat-num" style="font-size:1.5rem;line-height:1.3;">Independent</div><div class="stat-lbl">Community pharmacy — not a chain</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /#page-about -->
+
+<!-- ═══════ PRESCRIBING PAGE ═══════ -->
+<div class="page" id="page-prescribing" style="display:none;">
+
+  <section class="sec sec-white">
+    <div class="inner">
+      <div class="sec-head center">
+        <div class="sec-label">Clinical Services</div>
+        <h2 class="sec-title">Pharmacist Prescribing for Minor Ailments and Birth Control</h2>
+        <p class="sec-sub">Our pharmacists can assess and prescribe for a range of minor conditions and birth control. No doctor's appointment required.</p>
+      </div>
+      <div class="ailment-cat"><h3>Skin Conditions</h3><div class="ailment-list"><div class="ailment-item">Acne (mild)</div><div class="ailment-item">Eczema</div><div class="ailment-item">Contact dermatitis</div><div class="ailment-item">Fungal infections</div><div class="ailment-item">Cold sores</div></div></div>
+      <div class="ailment-cat"><h3>Eye &amp; Ear</h3><div class="ailment-list"><div class="ailment-item">Conjunctivitis (pink eye)</div><div class="ailment-item">Dry eye</div><div class="ailment-item">Ear infections (swimmer's ear)</div></div></div>
+      <div class="ailment-cat"><h3>Respiratory</h3><div class="ailment-list"><div class="ailment-item">Allergic rhinitis</div><div class="ailment-item">Cough and cold symptoms</div><div class="ailment-item">Mild sinusitis</div></div></div>
+      <div class="ailment-cat"><h3>Gastrointestinal</h3><div class="ailment-list"><div class="ailment-item">Acid reflux (GERD)</div><div class="ailment-item">Nausea</div><div class="ailment-item">Diarrhea</div><div class="ailment-item">Constipation</div><div class="ailment-item">Hemorrhoids</div></div></div>
+      <div class="ailment-cat"><h3>Women's Health &amp; Birth Control</h3><div class="ailment-list"><div class="ailment-item">Uncomplicated UTIs</div><div class="ailment-item">Yeast infections</div><div class="ailment-item">Emergency contraception</div><div class="ailment-item">Oral contraceptives (birth control)</div></div></div>
+      <div class="ailment-cat"><h3>Pain &amp; Other</h3><div class="ailment-list"><div class="ailment-item">Headaches</div><div class="ailment-item">Minor musculoskeletal pain</div><div class="ailment-item">Smoking cessation</div><div class="ailment-item">Mild sleep issues</div><div class="ailment-item">Insect bites / minor allergic reactions</div></div></div>
+      <div class="compliance">Pharmacist prescribing is available for select minor ailments and birth control in accordance with British Columbia regulations. Assessment is required. Not all conditions are eligible.</div>
+    </div>
+  </section>
+
+</div><!-- /#page-prescribing -->
+
+<!-- ═══════ PRESCRIPTIONS PAGE ═══════ -->
+<div class="page" id="page-prescriptions" style="display:none;">
+  <section class="sec sec-white">
+    <div class="inner">
+      <div class="sec-head center">
+        <div class="sec-label">Prescriptions</div>
+        <h2 class="sec-title">Prescription Services</h2>
+        <p class="sec-sub">Save more with our low dispensing fees. Transfer or refill your prescription below.</p>
+      </div>
+      <div class="rx-features">
+        <div class="rx-feat"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>Transfers</div>
+        <div class="rx-feat"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>Refills</div>
+        <div class="rx-feat"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>Medication Reviews</div>
+        <div class="rx-feat"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>Blister Packaging</div>
+        <div class="rx-feat"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>Delivery</div>
+        <div class="rx-feat"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>Compounding</div>
+      </div>
+      <div class="form-card">
+        <div class="form-tabs" style="max-width:none;margin:0 0 2rem 0;">
+          <button class="form-tab active" onclick="switchTab('transfer',this)">Transfer Prescription</button>
+          <button class="form-tab" onclick="switchTab('refill',this)">Refill Prescription</button>
+        </div>
+        <div class="form-panel active" id="panel-transfer" style="max-width:none;margin:0;">
+          <form onsubmit="handleSubmit(event,'transfer')">
+            <div class="form-grid">
+              <div class="fg"><label>First Name *</label><input type="text" placeholder="Jane" required></div>
+              <div class="fg"><label>Last Name *</label><input type="text" placeholder="Smith" required></div>
+              <div class="fg"><label>Phone Number * <span class="note" style="font-weight:400;">(cell preferred)</span></label><input type="tel" placeholder="(604) 555-0100" required></div>
+              <div class="fg"><label>Email</label><input type="email" placeholder="jane@email.com"></div>
+              <div class="fg full"><label>Current Pharmacy Name &amp; Phone Number *</label><input type="text" placeholder="e.g. Shoppers Drug Mart, (604) 555-0200" required></div>
+              <div class="fg full"><label>Prescription Number(s) or Medication Name(s) to Transfer *</label><textarea placeholder="e.g. RX#123456, Metformin 500mg…" required></textarea></div>
+              <div class="fg full"><label>Upload Prescription / Label (optional)</label><input type="file" accept="image/*,.pdf"></div>
+            </div>
+            <div class="form-submit"><button type="submit" class="btn btn-primary btn-lg">Submit Transfer Request</button></div>
+          </form>
+        </div>
+        <div class="form-panel" id="panel-refill" style="max-width:none;margin:0;">
+          <form onsubmit="handleSubmit(event,'refill')">
+            <div class="form-grid">
+              <div class="fg"><label>First Name *</label><input type="text" placeholder="Jane" required></div>
+              <div class="fg"><label>Last Name *</label><input type="text" placeholder="Smith" required></div>
+              <div class="fg"><label>Phone Number * <span class="note" style="font-weight:400;">(cell preferred)</span></label><input type="tel" placeholder="(604) 555-0100" required></div>
+              <div class="fg"><label>Email</label><input type="email" placeholder="jane@email.com"></div>
+              <div class="fg full"><label>Prescription Number(s) or Medication Name(s) *</label><textarea placeholder="e.g. RX#123456, Metformin 500mg…" required></textarea></div>
+              <div class="fg full"><label>Upload Prescription Label (optional)</label><input type="file" accept="image/*,.pdf"></div>
+            </div>
+            <div class="form-submit"><button type="submit" class="btn btn-primary btn-lg">Submit Refill Request</button></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /#page-prescriptions -->
+
+<!-- ═══════ VACCINATIONS PAGE ═══════ -->
+<div class="page" id="page-vaccinations" style="display:none;">
+  <section class="sec sec-gray">
+    <div class="inner">
+      <div class="sec-head center">
+        <div class="sec-label">Vaccinations</div>
+        <h2 class="sec-title">Vaccines Available at Our Pharmacy</h2>
+        <p class="sec-sub">Walk-ins welcome for most vaccines. No appointment needed.</p>
+      </div>
+      <h3 style="font-size:.95rem;font-weight:700;margin-bottom:1rem;">Routine &amp; Public Health Vaccines</h3>
+      <div class="vax-grid" style="margin-bottom:2.5rem;">
+        <div class="vax-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Influenza (Flu)</div>
+        <div class="vax-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>COVID-19</div>
+        <div class="vax-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Pneumococcal (Pneumonia)</div>
+        <div class="vax-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Shingles (Herpes Zoster)</div>
+        <div class="vax-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Tetanus / Tdap</div>
+        <div class="vax-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Hepatitis A</div>
+        <div class="vax-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Hepatitis B</div>
+        <div class="vax-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>HPV</div>
+        <div class="vax-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>MMR (Measles, Mumps, Rubella)</div>
+        <div class="vax-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Varicella (Chickenpox)</div>
+        <div class="vax-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Meningococcal</div>
+      </div>
+      <h3 style="font-size:.95rem;font-weight:700;margin-bottom:0.4rem;">Travel Vaccines <span style="font-weight:400;color:var(--gray-500);font-size:.85rem;">(Coming Soon)</span></h3>
+      <p style="font-size:.875rem;color:var(--gray-500);margin-bottom:1.1rem;">Contact us to ask about travel vaccine availability.</p>
+      <div class="vax-grid">
+        <div class="vax-item future"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Typhoid</div>
+        <div class="vax-item future"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Yellow Fever</div>
+        <div class="vax-item future"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Japanese Encephalitis</div>
+        <div class="vax-item future"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Rabies (pre-exposure)</div>
+        <div class="vax-item future"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Cholera (oral)</div>
+      </div>
+      <div class="compliance">Availability may vary — please contact the pharmacy to confirm before visiting.</div>
+      <p style="text-align:center;margin-top:1.5rem;font-size:1rem;font-weight:600;color:var(--green);">Call today to check vaccine availability: <a href="tel:6042079972" style="color:var(--green);">(604) 207-9972</a></p>
+    </div>
+  </section>
+</div><!-- /#page-vaccinations -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a onclick="showPage('home')" style="text-decoration:none;cursor:pointer;display:flex;align-items:center;gap:0.6rem;">
+          <span>
+            <span class="footer-logo-main">Ackroyd Pharmacy</span>
+            <span class="footer-logo-sub">Richmond · Since 2003</span>
+          </span>
+        </a>
+        <p><a href="https://maps.google.com/?q=160-8100+Ackroyd+Road+Richmond+BC" target="_blank" style="color:inherit;text-decoration:none;">160–8100 Ackroyd Road, Richmond, BC</a></p>
+        <p>Phone: <a href="tel:+16042079972" style="color:inherit;text-decoration:none;">(604) 207-9972</a> &nbsp;·&nbsp; Fax: (604) 207-9080</p>
+        <p>Email: <a href="mailto:manager@ackroydpharmacy.ca" style="color:inherit;text-decoration:none;">manager@ackroydpharmacy.ca</a></p>
+        <p>Mon–Fri: 9:30am–7:30pm &nbsp;·&nbsp; Sat: 9:30am–6:30pm &nbsp;·&nbsp; Closed on Sundays, statutory holidays and Boxing Day.</p>
+        <p class="footer-tagline">"Locally owned &amp; operated · Proudly serving Richmond since 2003"</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a onclick="showPage('home')">Home</a></li>
+          <li><a onclick="showPage('about')">About</a></li>
+          <li><a onclick="showPage('prescribing')">Prescribing</a></li>
+          <li><a onclick="showPage('prescriptions')">Prescriptions</a></li>
+          <li><a onclick="showPage('vaccinations')">Vaccinations</a></li>
+          <li><a onclick="showPage('home');goToContact()">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul class="footer-links">
+          <li><a onclick="showPage('prescriptions')">Transfer Prescription</a></li>
+          <li><a onclick="showPage('prescriptions');setTimeout(()=>{switchTab('refill',document.querySelectorAll('.form-tab')[1])},80)">Refill Prescription</a></li>
+          <li><a onclick="showPage('vaccinations')">Vaccinations</a></li>
+          <li><a onclick="showPage('prescribing')">Minor Ailments &amp; Birth Control</a></li>
+          <li><a onclick="showPage('home')">Pet Medication</a></li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:0.75rem;color:var(--gray-400);line-height:1.7;margin-bottom:1.5rem;border-top:1px solid var(--border);padding-top:1.25rem;">Ackroyd Pharmacy is located at 160–8100 Ackroyd Road, Richmond, BC. The pharmacy is managed by Anthony Lee, (604) 207-9972, and is licensed by the College of Pharmacists of BC. Pharmacy practice issues may be reported to the College located at 200 – 1765 West 8th Ave, Vancouver, BC V6J 5C6.</p>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Ackroyd Pharmacy. All rights reserved.</p>
+      <p>ackroydpharmacy.ca</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function showPage(name) {
+    document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+    const page = document.getElementById('page-' + name);
+    if (!page) return;
+    page.style.display = 'block';
+    document.querySelectorAll('nav a.nav-link').forEach(a => a.classList.remove('active'));
+    const link = document.querySelector('nav a.nav-link[data-page="' + name + '"]');
+    if (link) link.classList.add('active');
+    window.scrollTo({top: 0, behavior: 'instant'});
+    document.getElementById('main-nav').classList.remove('open');
+    page.querySelectorAll('.fade-up').forEach(el => {
+      el.classList.remove('visible');
+      fadeObserver.observe(el);
+    });
+  }
+
+  function goToContact() {
+    setTimeout(function() {
+      var el = document.getElementById('contact-section');
+      if (el) el.scrollIntoView({behavior: 'smooth'});
+    }, 50);
+  }
+
+  function toggleMenu() {
+    document.getElementById('main-nav').classList.toggle('open');
+  }
+
+  function switchTab(tab, el) {
+    document.querySelectorAll('.form-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.form-panel').forEach(p => p.classList.remove('active'));
+    var panel = document.getElementById('panel-' + tab);
+    if (panel) panel.classList.add('active');
+    if (el) el.classList.add('active');
+  }
+
+  // ── Replace this URL after deploying Code.gs as a Web App for Ackroyd Pharmacy's own Google Sheet ───────────────
+  var SCRIPT_URL = 'REPLACE_WITH_ACKROYD_APPS_SCRIPT_URL';
+
+  var SUCCESS_MSG = {
+    refill   : 'Thank you! Your refill request has been received. We will contact you shortly.',
+    transfer : 'Thank you! Your transfer request has been received. We will be in touch soon.',
+    contact  : 'Thank you for your message. We will get back to you as soon as possible.'
+  };
+
+  async function handleSubmit(e, type) {
+    e.preventDefault();
+    var form = e.target;
+    var btn  = form.querySelector('[type="submit"]');
+    var orig = btn.textContent;
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    try {
+      // Collect text fields (exclude file inputs)
+      var fields = Array.from(form.querySelectorAll('input:not([type="file"]), textarea, select'));
+      var data = { formType: type };
+
+      if (type === 'refill') {
+        data.firstName   = fields[0].value.trim();
+        data.lastName    = fields[1].value.trim();
+        data.phone       = fields[2].value.trim();
+        data.email       = fields[3].value.trim();
+        data.prescription = fields[4].value.trim();
+      } else if (type === 'transfer') {
+        data.firstName      = fields[0].value.trim();
+        data.lastName       = fields[1].value.trim();
+        data.phone          = fields[2].value.trim();
+        data.email          = fields[3].value.trim();
+        data.currentPharmacy = fields[4].value.trim();
+        data.prescription   = fields[5].value.trim();
+      } else if (type === 'contact') {
+        data.firstName = fields[0].value.trim();
+        data.lastName  = fields[1].value.trim();
+        data.phone     = fields[2].value.trim();
+        data.email     = fields[3].value.trim();
+        data.message   = fields[4].value.trim();
+      }
+
+      // File upload (convert to base64)
+      var fileInput = form.querySelector('input[type="file"]');
+      if (fileInput && fileInput.files[0]) {
+        var f = fileInput.files[0];
+        data.fileData = await toBase64(f);
+        data.fileName = f.name;
+        data.fileType = f.type || 'application/octet-stream';
+      }
+
+      // Fire-and-forget to Apps Script (no-cors = can't read response, that's fine)
+      fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(data) });
+
+      setTimeout(function() {
+        showFormSuccess(form, type, orig);
+      }, 800);
+
+    } catch (err) {
+      btn.textContent = orig;
+      btn.disabled = false;
+      showFormError(form);
+    }
+  }
+
+  function showFormSuccess(form, type, origBtnText) {
+    form.style.transition = 'opacity 0.3s';
+    form.style.opacity = '0';
+    setTimeout(function() {
+      form.style.display = 'none';
+      var card = document.createElement('div');
+      card.className = 'form-success';
+      card.innerHTML =
+        '<div class="form-success-icon"><svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="24"/><path d="M14 27l8 8 16-16"/></svg></div>' +
+        '<p class="form-success-msg">' + SUCCESS_MSG[type] + '</p>' +
+        '<button class="btn btn-outline" onclick="resetFormPanel(this)">Submit Another Request</button>';
+      card.dataset.origBtn = origBtnText;
+      form.parentNode.insertBefore(card, form.nextSibling);
+      requestAnimationFrame(function() { requestAnimationFrame(function() { card.classList.add('visible'); }); });
+    }, 300);
+  }
+
+  function resetFormPanel(btn) {
+    var card = btn.closest('.form-success');
+    var form = card.previousElementSibling;
+    var origBtn = card.dataset.origBtn || 'Submit';
+    card.remove();
+    form.reset();
+    form.style.display = '';
+    form.style.opacity = '0';
+    requestAnimationFrame(function() {
+      form.style.transition = 'opacity 0.3s';
+      form.style.opacity = '1';
+    });
+    var submitBtn = form.querySelector('[type="submit"]');
+    submitBtn.textContent = origBtn;
+    submitBtn.disabled = false;
+    var err = form.querySelector('.form-error-banner');
+    if (err) err.remove();
+  }
+
+  function showFormError(form) {
+    var existing = form.querySelector('.form-error-banner');
+    if (existing) existing.remove();
+    var banner = document.createElement('div');
+    banner.className = 'form-error-banner';
+    banner.textContent = 'Something went wrong. Please try again or call us at (604) 207-9972.';
+    form.querySelector('.form-submit').before(banner);
+  }
+
+  function toBase64(file) {
+    return new Promise(function(resolve, reject) {
+      var r = new FileReader();
+      r.onload  = function() { resolve(r.result.split(',')[1]); };
+      r.onerror = reject;
+      r.readAsDataURL(file);
+    });
+  }
+
+  var fadeObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); fadeObserver.unobserve(e.target); }
+    });
+  }, {threshold: 0.12});
+  document.querySelectorAll('.fade-up').forEach(function(el) { fadeObserver.observe(el); });
+
+  var secObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; secObserver.unobserve(e.target); }
+    });
+  }, {threshold: 0.08});
+  document.querySelectorAll('.why-item, .ailment-cat, .rx-features, .about-content, .stat-cards').forEach(function(el) {
+    el.style.opacity='0'; el.style.transform='translateY(20px)'; el.style.transition='opacity 0.6s ease, transform 0.6s ease';
+    secObserver.observe(el);
+  });
+
+  function animateCount(el) {
+    var target = parseInt(el.dataset.target), suffix = el.dataset.suffix||'', current=0, step=Math.max(1,Math.floor(target/50));
+    var timer = setInterval(function() { current=Math.min(current+step,target); el.textContent=current+suffix; if(current>=target)clearInterval(timer); },30);
+  }
+  var countObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if(e.isIntersecting){animateCount(e.target);countObserver.unobserve(e.target);} });
+  }, {threshold: 0.5});
+  document.querySelectorAll('[data-target]').forEach(function(el) { countObserver.observe(el); });
+
+</script>
+</body>
+</html>
