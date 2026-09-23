@@ -46,10 +46,11 @@
     .top-bar-badge { position: relative; overflow: hidden; font-size: 0.74rem; font-weight: 600; color: var(--green); letter-spacing: 0.05em; white-space: nowrap; }
     .top-bar-badge::after { content: ''; position: absolute; top: 0; left: -100%; width: 60%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.75), transparent); animation: shimmerBadge 2.8s linear infinite; }
     @keyframes shimmerBadge { 0% { left: -100%; } 100% { left: 200%; } }
-    .lang-switcher { display: flex; align-items: center; gap: 0.4rem; font-size: 0.76rem; color: var(--gray-600); }
+    .lang-switcher { display: flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; color: var(--gray-600); }
     .lang-switcher button { background: none; border: none; font: inherit; color: var(--gray-600); cursor: pointer; padding: 0; font-weight: 500; font-family: inherit; }
     .lang-switcher button.active { color: var(--green); font-weight: 700; }
     .lang-switcher .lang-sep { color: var(--gray-500); }
+    .header-right { display: flex; align-items: center; gap: 1rem; }
 
     /* ── SITE HEADER WRAP (sticky) ── */
     .site-header-wrap { position: sticky; top: 0; z-index: 100; }
@@ -263,7 +264,6 @@
       .top-bar-email { font-size: 0.72rem; order: 2; width: 100%; justify-content: center; }
       .top-bar-address { font-size: 0.72rem; order: 1; }
       .top-bar-badge { order: 3; width: 100%; text-align: center; }
-      .lang-switcher { order: 4; width: 100%; justify-content: center; font-size: 0.72rem; margin-top: 0.1rem; }
       .photo-strip { grid-template-columns: 1fr; }
       .photo-strip-item img { height: 180px; }
       nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); padding: 1rem 1.5rem; box-shadow: 0 4px 16px rgba(0,0,0,0.08); flex-direction: column; align-items: flex-start; gap: 0; z-index: 99; }
@@ -337,13 +337,6 @@
         160–8100 Ackroyd Road, Richmond
       </a>
       <div class="top-bar-badge">&#10022; <span data-i18n="topbar.badge">Locally Owned &amp; Operated</span></div>
-      <div class="lang-switcher">
-        <button type="button" class="lang-btn active" data-lang="en" onclick="applyLanguage('en')">EN</button>
-        <span class="lang-sep">·</span>
-        <button type="button" class="lang-btn" data-lang="zh-CN" onclick="applyLanguage('zh-CN')">简</button>
-        <span class="lang-sep">·</span>
-        <button type="button" class="lang-btn" data-lang="zh-TW" onclick="applyLanguage('zh-TW')">繁</button>
-      </div>
     </div>
   </div>
   <header>
@@ -354,9 +347,6 @@
         <span class="logo-sub" data-i18n="header.tagline">Richmond · Since 2003</span>
         </span>
       </a>
-      <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
       <nav id="main-nav">
         <a onclick="showPage('home')" class="nav-link active" data-page="home" data-i18n="nav.home">Home</a>
         <a onclick="showPage('about')" class="nav-link" data-page="about" data-i18n="nav.about">About</a>
@@ -365,7 +355,19 @@
         <a onclick="showPage('vaccinations')" class="nav-link" data-page="vaccinations" data-i18n="nav.vaccinations">Vaccinations</a>
         <a onclick="showPage('home');goToContact()" class="nav-link" data-page="contact" data-i18n="nav.contact">Contact</a>
       </nav>
-      <a onclick="showPage('prescriptions');setTimeout(()=>{switchTab('transfer',document.querySelectorAll('.form-tab')[0])},80)" class="btn btn-warm header-cta-btn" data-i18n="header.cta">Transfer Prescription</a>
+      <div class="header-right">
+        <div class="lang-switcher">
+          <button type="button" class="lang-btn active" data-lang="en" onclick="applyLanguage('en')">EN</button>
+          <span class="lang-sep">·</span>
+          <button type="button" class="lang-btn" data-lang="zh-CN" onclick="applyLanguage('zh-CN')">简</button>
+          <span class="lang-sep">·</span>
+          <button type="button" class="lang-btn" data-lang="zh-TW" onclick="applyLanguage('zh-TW')">繁</button>
+        </div>
+        <a onclick="showPage('prescriptions');setTimeout(()=>{switchTab('transfer',document.querySelectorAll('.form-tab')[0])},80)" class="btn btn-warm header-cta-btn" data-i18n="header.cta">Transfer Prescription</a>
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
 </div>
