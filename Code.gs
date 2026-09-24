@@ -1,19 +1,17 @@
 // ── Ackroyd Pharmacy – Form Handler ─────────────────────────────────────────
 // Deploy: Extensions → Apps Script → Deploy → New deployment
 //         Type: Web app | Execute as: Me | Who has access: Anyone
-// Fill in SPREADSHEET_ID / DRIVE_FOLDER_ID / NOTIFY_EMAIL below for Ackroyd
-// Pharmacy's own Google Sheet + Drive folder before deploying.
 // ─────────────────────────────────────────────────────────────────────────
 
-var SPREADSHEET_ID  = 'REPLACE_WITH_ACKROYD_SPREADSHEET_ID';
-var DRIVE_FOLDER_ID = 'REPLACE_WITH_ACKROYD_DRIVE_FOLDER_ID';
+var SPREADSHEET_ID  = '15oXI2ZuYCEPrJlvRI9UgIjqzbBonZ0sPGIMcqAEFP8I';
+var DRIVE_FOLDER_ID = '1Kzt77Qf_MDubTk_EqFrN-ZeJhQ7tkcXS';
 var NOTIFY_EMAIL    = 'manager@ackroydpharmacy.ca';
 
 // Tab GIDs — stable even if tabs are renamed
 var SHEET_GID = {
   contact  : 0,
-  transfer : 96652872,
-  refill   : 1668760477
+  transfer : 1954184876,
+  refill   : 1744041942
 };
 
 function doPost(e) {
